@@ -21,7 +21,7 @@ async function getUserLocationViaIP(){
         const {city} = await fetchFunction({
             url : "https://ipinfo.io/json/",
             httpMethod : "GET"
-        }); //Destructuring city
+        });
         if(!city){
             const error = new Error("City Not Found via IP");
             error.code = "CITY_NOT_FOUND";
@@ -33,7 +33,6 @@ async function getUserLocationViaIP(){
 
 
 async function userChoice(){
-    //using let, as let can be initialized later and is still block scoped.
     let userPreference; 
     
     while(true){
