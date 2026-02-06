@@ -69,7 +69,7 @@ async function getWeatherDetails(cityName){
     try {
         //API CALL 2 to get weather details.
         const result = await fetchFunction({
-            url : `http://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&APPID=d8bbe8e738ce5468f1da5593bb56dd9f`,
+            url : `http://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&APPID=${process.env.WEATHER_API_KEY}`,
             httpMethod : "GET"
         });
 
