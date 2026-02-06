@@ -81,7 +81,7 @@ The application follows a clear and predictable flow:
 
 Below is the high-level flowchart representing the application logic:
 
-> 📌 **Note:** Place the flowchart image inside an `assets/` folder and name it `weather-flowchart.png` (or update the path accordingly)
+![Weather Console App Flowchart](./assets/weather-flowchart.png)
 
 ## ▶️ Run the Application
 
