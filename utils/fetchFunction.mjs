@@ -13,7 +13,7 @@ async function fetchFunction({url,httpMethod,payloadBody}){
             method : httpMethod,
             headers : {
                 'Content-Type' : 'application/json',
-                'X-Api-Key' : 'd8bbe8e738ce5468f1da5593bb56dd9f'
+                'X-Api-Key' : process.env.WEATHER_API_KEY
             },
             ...(httpMethod === "POST" && {body:JSON.stringify(payloadBody)})
         });

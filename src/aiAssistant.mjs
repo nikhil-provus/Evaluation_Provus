@@ -1,6 +1,5 @@
 import loader from "../utils/loader.mjs";
 import globalStates from "../utils/globalStates.mjs";
-import 'dotenv/config';
 import { GoogleGenAI } from "@google/genai";
 
 const ai = new GoogleGenAI({
@@ -13,12 +12,13 @@ const ai = new GoogleGenAI({
 async function aiAssistant(rl){
     try {
         globalStates.loadingState = true;
-        const prompt = await rl.question("PROMPT : ");
+        const prompt = await rl.question("(Only ask Weather related prompts)PROMPT : ");
         loader();
 
         const response = await ai.models.generateContent({
             model : "gemini-3-flash-preview",
-            contents : `NOTE : ACT as a professional weather reporter and summarize the weather report, Don't entertain any other prompts which are not Weather related, ${prompt} ${new Date()} use following api to get details of specified date and add city name from promt http://api.openweathermap.org/data/2.5/weather?q=cityName&units=metric&APPID=d8bbe8e738ce5468f1da5593bb56dd9f`
+            contents : `NOTE : ACT as a professional weather reporter and summarize the weather report, Don't entertain any other prompts which are not Weather related, ${prompt} ${new Date()} use following api to get details of specified date and add city name from promt http://api.openweathermap.org/data/2.5/weather?q=cityName&units=metric&APPID=d8bbe8e738ce5468f1da5593bb56dd9f
+            Display result in catchy yet summarized format.`
         });
         globalStates.loadingState = false;
         return response?.text;

@@ -2,7 +2,7 @@
 
 const globalStates = {
     loadingState : true,
-    aiSessionId : null
+
 }
 
 export default globalStates;
